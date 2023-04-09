@@ -1,21 +1,30 @@
 import Slider from "../Slider";
 import ImageCarousel from "../ImageCarousel";
 import Header from "../Header";
-
-const photos = [
-    "/slider.png",
-    "https://via.placeholder.com/800x400/2ecc71/ffffff?text=Photo+2",
-    "https://via.placeholder.com/800x400/3498db/ffffff?text=Photo+3",
-    "https://via.placeholder.com/800x400/9b59b6/ffffff?text=Photo+4",
-    "https://via.placeholder.com/800x400/e74c3c/ffffff?text=Photo+5",
-];
+import { useEffect, useState } from "react";
+import axios from "axios";
+import WelcomeBlock from "../WelcomeBlock";
+import DiscountBlock from "../DiscountBlock";
+import Footer from "../Footer";
 
 function Home() {
+    const [photos, setPhotos] = useState([]);
+    useEffect(() => {
+        axios.get("https://dummyjson.com/products").then((response) => {
+            const res = response.data.products.slice(11, 13);
+            setPhotos(res);
+            console.log(res);
+        });
+    }, []);
+
     return (
         <>
             <Header />
-            <Slider images={photos} />
             <ImageCarousel images={photos} />
+            <WelcomeBlock />
+            <Slider />
+            <DiscountBlock />
+            <Footer />
         </>
     );
 }

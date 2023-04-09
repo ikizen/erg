@@ -1,50 +1,57 @@
-import React, { useState } from "react";
-// import "./slider.scss";
-const photos = [
-    "https://via.placeholder.com/800x400/1abc9c/ffffff?text=Photo+1",
-    "https://via.placeholder.com/800x400/2ecc71/ffffff?text=Photo+2",
-    "https://via.placeholder.com/800x400/3498db/ffffff?text=Photo+3",
-    "https://via.placeholder.com/800x400/9b59b6/ffffff?text=Photo+4",
-    "https://via.placeholder.com/800x400/e74c3c/ffffff?text=Photo+5",
-];
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Slider = ({ images }) => {
-    const [currentImage, setCurrentImage] = useState(0);
+function Slider() {
+    const [photos, setPhotos] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
+    useEffect(() => {
+        axios.get("https://dummyjson.com/products").then((response) => {
+            // console.log(response.data);
+            const res = response.data.products.slice(0, 10);
+            setPhotos(res);
+            console.log(res);
+        });
+    }, []);
 
-    const nextImage = () => {
-        if (currentImage === images.length - 1) {
-            setCurrentImage(0);
-        } else {
-            setCurrentImage(currentImage + 1);
-        }
+    const handlePrevClick = () => {
+        setStartIndex(startIndex - 5);
     };
 
-    const previousImage = () => {
-        if (currentImage === 0) {
-            setCurrentImage(images.length - 1);
-        } else {
-            setCurrentImage(currentImage - 1);
-        }
+    const handleNextClick = () => {
+        setStartIndex(startIndex + 5);
     };
 
     return (
-        <div className="slider">
-            <img src={images[currentImage]} alt={`Image ${currentImage + 1}`} />
-
-            <button
-                onClick={previousImage}
-                className="slider__button slider__button--left"
-            >
-                {"<"}
-            </button>
-            <button
-                onClick={nextImage}
-                className="slider__button slider__button--right"
-            >
-                {">"}
-            </button>
+        <div>
+            <div className="slider">
+                {startIndex > 0 && (
+                    <button
+                        className="slider__button slider__button--prev"
+                        onClick={handlePrevClick}
+                    >
+                        ❮
+                    </button>
+                )}
+                <div className="slider__photos">
+                    {photos.slice(startIndex, startIndex + 5).map((photo) => (
+                        <img
+                            key={photo.title}
+                            src={photo.images[0]}
+                            alt={photo.title}
+                        />
+                    ))}
+                </div>
+                {startIndex < photos.length - 5 && (
+                    <button
+                        className="slider__button slider__button--next"
+                        onClick={handleNextClick}
+                    >
+                        ❯
+                    </button>
+                )}
+            </div>
         </div>
     );
-};
+}
 
 export default Slider;

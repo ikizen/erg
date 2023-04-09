@@ -12,14 +12,6 @@ import Women from "./components/pages/Women";
 import Kid from "./components/pages/Kid";
 import Sale from "./components/pages/Sale";
 
-// useEffect(() => {
-//     axios
-//         .get("https://jsonplaceholder.typicode.com/photos")
-//         .then((response) => {
-//             console.log(response.data); // get the first 5 photos
-//         });
-// }, []);
-
 function App() {
     return (
         <Router>

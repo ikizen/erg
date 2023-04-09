@@ -1,50 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+// import "./Carousel.scss";
 
-const ImageCarousel = ({ images }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+const Carousel = () => {
+    const [photos, setPhotos] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("https://jsonplaceholder.typicode.com/photos")
+            .then((response) => {
+                setPhotos(response.data.slice(0, 5));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {
-        const nextIndex =
-            currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-        setCurrentIndex(nextIndex);
+        setCurrentSlide(
+            currentSlide === photos.length - 1 ? 0 : currentSlide + 1
+        );
     };
 
     const prevSlide = () => {
-        const prevIndex =
-            currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-        setCurrentIndex(prevIndex);
+        setCurrentSlide(
+            currentSlide === 0 ? photos.length - 1 : currentSlide - 1
+        );
     };
 
     return (
         <div className="carousel">
-            <button
-                className="carousel__button carousel__button--prev"
-                onClick={prevSlide}
-            >
-                &lt;
-            </button>
-            <div className="carousel__slides">
-                {images.map((image, index) => (
-                    <img
-                        key={index}
-                        className={`carousel__slide ${
-                            index === currentIndex
-                                ? "carousel__slide--active"
-                                : ""
-                        }`}
-                        src={image.src}
-                        alt={image.alt}
-                    />
+            <div className="carousel__slider">
+                {photos.map((photo, index) => (
+                    <div
+                        key={photo.id}
+                        className={
+                            index === currentSlide
+                                ? "carousel__slide carousel__slide--active"
+                                : "carousel__slide"
+                        }
+                    >
+                        <img
+                            className="carousel__image"
+                            src={photo.thumbnailUrl}
+                            alt={photo.title}
+                        />
+                        <div className="carousel__title">{photo.title}</div>
+                    </div>
                 ))}
             </div>
             <button
-                className="carousel__button carousel__button--next"
+                className="carousel__button carousel__button--left"
+                onClick={prevSlide}
+            >
+                &#10094;
+            </button>
+            <button
+                className="carousel__button carousel__button--right"
                 onClick={nextSlide}
             >
-                &gt;
+                &#10095;
             </button>
         </div>
     );
 };
 
-export default ImageCarousel;
+export default Carousel;
