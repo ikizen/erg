@@ -6,41 +6,51 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer__row1">
                 <div className="footer__row1__column">
-                    <img src="/about-us.svg" alt="" />
-                    <span className="footer__text">About us</span>
+                    <span>
+                        <img src="/about-us.svg" alt="" />
+                        About us
+                    </span>
+                    <div className="footer__row1__column__text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Amet recusandae voluptates rem, magnam at nostrum
+                        quas, labore eveniet nesciunt ut vitae sequi! Recusandae
+                        quae facere vero. Ipsum nobis maxime incidunt!
+                    </div>
                 </div>
                 <div className="footer__row1__column">
-                    <i className="fab fa-twitter footer__icon"></i>
                     <span className="footer__text">
-                        <a href="#" className="footer__link"></a>
-                        <Link className="footer__link">Follow us</Link>
-                        <a href="#" className="footer__link">
-                            Tweet us
-                        </a>
+                        <img src="/twitter.svg" alt="" />
+                        Follow us
                     </span>
+                    <div className="footer__row1__column__text">
+                        <img src="/quote.svg" alt="" />
+                        Lorem ipsum dolor sit.
+                    </div>
+                    <div className="footer__row1__column__text">
+                        <img src="/quote.svg" alt="" />
+                        Lorem ipsum dolor sit.
+                    </div>
                 </div>
                 <div className="footer__row1__column">
-                    <i className="fas fa-envelope footer__icon"></i>
                     <span className="footer__text">
-                        <a href="#" className="footer__link">
-                            Contact us
-                        </a>
-                        <a href="#" className="footer__link">
-                            <i className="fas fa-phone-alt"></i> 1-800-123-4567
-                        </a>
-                        <a href="#" className="footer__link">
-                            <i className="fas fa-phone-alt"></i> 1-800-987-6543
-                        </a>
+                        <img src="/contact-us.svg" alt="" />
+                        Contact us
                     </span>
+                    <div className="footer__row1__column__text">
+                        <img src="/phone1.svg" alt="" />8 700 700 70 70
+                    </div>
+                    <div className="footer__row1__column__text">
+                        <img src="/phone2.svg" alt="" />8 777 777 77 77
+                    </div>
                 </div>
             </div>
             <div className="footer__row2">
-                <Link className="footer__button">About us</Link>
-                <Link className="footer__button">Customer service</Link>
-                <Link className="footer__button">Site map</Link>
-                <Link className="footer__button">Search terms</Link>
-                <Link className="footer__button">Advanced search</Link>
-                <Link className="footer__button">Contact us</Link>
+                <Link className="footer__row2__button">About us</Link>
+                <Link className="footer__row2__button">Customer service</Link>
+                <Link className="footer__row2__button">Site map</Link>
+                <Link className="footer__row2__button">Search terms</Link>
+                <Link className="footer__row2__button">Advanced search</Link>
+                <Link className="footer__row2__button">Contact us</Link>
             </div>
             <div className="footer__row3">
                 <span className="footer__row3__text">
@@ -53,8 +63,6 @@ const Footer = () => {
                         <option value="fr">Français</option>
                         <option value="es">Español</option>
                     </select>
-                </div>
-                <div className="footer__row3__column">
                     <span>Currency:</span>
                     <select className="footer__row3__column__select">
                         <option value="usd">USD</option>

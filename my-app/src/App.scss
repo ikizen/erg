@@ -2,13 +2,17 @@
 @import "./styles/variables";
 
 .App {
-    padding: 0 126px;
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/noise_lines.png");
+    font-family: Roboto, serif;
+    min-height: 100vh;
+}
+body {
+    margin: 0;
 }
 
 .header {
-    background-color: #fff;
-    padding: 1rem;
     height: 250px;
+    @include padding;
 
     &__top {
         display: flex;
@@ -18,25 +22,31 @@
 
         .button {
             margin-left: 1rem;
+            cursor: pointer;
+            img {
+                height: 15px;
+                width: 15px;
+                padding-right: 5px;
+                color: #6e8492;
+            }
 
             &--my-account {
-                background-color: #f5f5f5;
                 color: #333;
+                :hover {
+                    text-decoration: underline black;
+                }
             }
 
             &--wishlist {
-                background-color: #f5f5f5;
                 color: #333;
             }
 
             &--checkout {
-                background-color: #f5f5f5;
                 color: #333;
             }
 
             &--log-in {
-                background-color: #333;
-                color: #fff;
+                color: #333;
             }
         }
     }
@@ -48,15 +58,22 @@
         margin-bottom: 1rem;
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
+            width: 100px;
+            height: 100px;
+        }
+        &__right {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
         }
 
         .search-form {
             display: flex;
             align-items: center;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/funky-lines.png");
+            padding: 20px;
+            border-radius: 10px;
+            border: dashed 2px #c3c3c3;
 
             &__input {
                 padding: 0.5rem;
@@ -86,16 +103,26 @@
         }
 
         .button--basket {
-            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/funky-lines.png");
             color: #333;
             padding: 0.5rem;
             border-radius: 0.25rem;
             text-decoration: none;
+            border: dashed 2px #c3c3c3;
+            border-radius: 10px;
+            img {
+                height: 30px;
+                padding-bottom: 11px;
+            }
         }
     }
 
     &__bottom {
-        border-top: 1px solid #ccc;
+        background: #6e8492;
+        border: dashed 2px white;
+        padding: 15px 0;
 
         .nav {
             ul {
@@ -111,11 +138,14 @@
 
                     .nav__link {
                         text-decoration: none;
-                        color: #333;
+                        color: white;
                         padding: 0.25rem;
+                        font-weight: 600;
 
                         &:hover {
                             background-color: #f5f5f5;
+                            color: #000;
+                            border-radius: 10px;
                         }
                     }
                 }
@@ -127,7 +157,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    padding: 50px 126px;
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/cheap_diagonal_fabric.png");
     &__slider {
         position: relative;
         height: 400px;
@@ -173,79 +204,33 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: white;
-        border: none;
+        background-color: #6e8492;
+        color: white;
+        border: dashed 2px white;
         outline: none;
         font-size: 24px;
         cursor: pointer;
         z-index: 2;
 
         &--left {
-            left: 140px;
-            padding: 10px 20px 10px 10px;
+            left: 68px;
+            padding: 15px 20px;
         }
 
         &--right {
-            right: 140px;
-            padding: 10px 10px 10px 20px;
+            right: 68px;
+            padding: 15px 20px;
         }
     }
 }
-
-.slider {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-
-    &__photos {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 1rem;
-        overflow: hidden;
-        width: 100%;
-        height: 300px;
-        justify-content: center;
-
-        img {
-            width: 200px;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    &__button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
-        border: none;
-        color: #666;
-        font-size: 2rem;
-        height: 50px;
-        width: 50px;
-        cursor: pointer;
-
-        &:hover {
-            color: #000;
-        }
-
-        &--prev {
-            left: 20px;
-        }
-
-        &--next {
-            right: 20px;
-        }
-    }
-}
-
 .welcome-block {
-    background-color: #f5f5f5;
-    padding: 2rem;
-    text-align: center;
+    padding: 40px 126px;
+    text-align: left;
+    color: #6e8492;
 
     &__title {
         font-size: 2rem;
-        font-weight: bold;
+        font-weight: bolder;
         margin-bottom: 1rem;
     }
 
@@ -256,12 +241,62 @@
         margin-bottom: 1rem;
     }
 }
+.slider {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 126px;
+    height: 200px;
+
+    &__photos {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+        justify-content: center;
+        align-content: center;
+
+        img {
+            border: #cbcbcb 2px solid;
+            width: 200px;
+            height: 196px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    }
+    &__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #6e8492;
+        height: 100%;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        width: 40px;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+        }
+
+        &--prev {
+            left: 100px;
+        }
+
+        &--next {
+            right: 100px;
+        }
+    }
+}
 .discount-block {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
     margin: 50px 0;
+    color: #6e8492;
+    @include padding;
 
     &__column {
         width: 48%;
@@ -274,13 +309,9 @@
         display: flex;
         flex: auto;
         align-items: center;
-        border: 1px solid #ccc;
+        border: #cbcbcb 2px solid;
         padding: 10px;
         cursor: pointer;
-
-        &:hover {
-            border: 1px solid #000;
-        }
     }
 
     &__image {
@@ -290,53 +321,44 @@
     }
 
     &__text {
-        font-size: 16px;
+        font-size: 32px;
     }
 }
-
 .footer {
     background-color: #333;
-    color: #fff;
-    padding: 30px;
+    color: #6e8492;
 
     &__row1 {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 50px 126px;
 
         &__column {
             display: flex;
-            align-items: center;
-            flex-direction: row;
-
+            align-items: start;
+            flex-direction: column;
+            gap: 20px;
+            width: 350px;
             &__icon {
                 margin-right: 10px;
             }
 
+            img {
+                width: 40px;
+                padding-right: 10px;
+            }
+            span {
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
             &__text {
-                font-weight: bold;
                 font-size: 16px;
 
-                __link {
-                    color: #fff;
-                    text-decoration: none;
-                    margin-right: 10px;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-                }
-
-                & + & {
-                    margin-top: 10px;
-                }
-
-                & > i {
-                    margin-right: 10px;
+                img {
+                    width: 20px;
                 }
             }
         }
@@ -344,30 +366,31 @@
 
     &__row2 {
         display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-
+        justify-content: start;
+        gap: 15px;
+        background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/noise_lines.png");
+        padding: 15px 126px;
         &__button {
-            background-color: transparent;
+            text-decoration: none;
+            padding-right: 18px;
             border: none;
             font-weight: bold;
             cursor: pointer;
-            font-size: 14px;
-            margin-right: 20px;
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
+            font-size: 18px;
+            color: #6e8492;
+            border-right: #6e8492 3px solid;
+        }
+        &__button:last-child {
+            border-right: 0;
         }
     }
 
     &__row3 {
         display: flex;
         justify-content: space-between;
+        padding: 20px 126px;
+        background: #6e8492;
+        color: white;
 
         &__text {
             font-size: 14px;
@@ -377,6 +400,7 @@
         &__column {
             display: flex;
             align-items: center;
+            gap: 10px;
 
             span {
                 font-size: 14px;
@@ -389,6 +413,81 @@
                 color: #fff;
                 font-size: 14px;
             }
+        }
+    }
+}
+.card-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 126px;
+    color: #6e8492;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        padding: 15px;
+        border: dashed 2px #6e8492;
+        background: #eaeaea;
+        border-radius: 10px;
+
+        &__img {
+            width: 100%;
+            height: 200px;
+            border: solid 1px #6e8492;
+        }
+
+        &__title {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: 700;
+            height: 70px;
+            padding: 5px 0;
+        }
+        &__info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            &__price {
+                font-weight: 900;
+                padding-right: 15px;
+            }
+            &__button {
+                cursor: pointer;
+                padding: 8px 13px;
+                font-weight: bold;
+                color: #4d6778;
+                background-color: #f3f3f3;
+                border: dashed 2px #6e8492;
+                border-radius: 10px;
+            }
+        }
+        &__wishlist {
+            padding: 5px 0;
+        }
+        &__compare {
+            padding-bottom: 10px;
+        }
+        &__wishlist,
+        &__compare {
+            display: flex;
+            flex-direction: row;
+            font-weight: 100;
+            font-size: 16px;
+            img {
+                width: 18px;
+                height: 18px;
+                padding-right: 5px;
+            }
+        }
+
+        &__wishlist:hover,
+        &__compare:hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 }

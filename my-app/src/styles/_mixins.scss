@@ -3,3 +3,6 @@
         align-items: center;
         flex-direction: column;
 }
+@mixin padding {
+    padding: 0 126px;
+}
