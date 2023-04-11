@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.scss";
 import "../index.scss";
 import { Link } from "react-router-dom";
 
 function Header() {
+    const [open, setOpen] = useState(false);
+
+    const toggle = () => {
+        setOpen(!open);
+    };
+
     return (
         <header className="header">
             <div className="header__top">
@@ -83,6 +89,51 @@ function Header() {
                         </li>
                         <li>
                             <Link to="/sale" className="nav__link">
+                                SALE
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div className="header__mobile">
+                <div>
+                    <Link to="/">
+                        <img className="logo" src="/logo.png" alt="" />
+                    </Link>
+                </div>
+                <img onClick={toggle} src="/menu.svg" alt="" />
+                <nav className={open ? "open" : "hide"}>
+                    <div className="close">
+                        <img onClick={toggle} src="/close.svg" alt="" />
+                    </div>
+                    <ul className="nav">
+                        <li>
+                            <Link to="/" className="link">
+                                HOME PAGE
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/brands" className="link">
+                                BRANDS
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/women" className="link">
+                                WOMEN'S SHOES
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/men" className="link">
+                                MEN'S SHOES
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/kid" className="link">
+                                KID'S SHOES
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/sale" className="link">
                                 SALE
                             </Link>
                         </li>

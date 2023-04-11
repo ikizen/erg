@@ -153,6 +153,9 @@ body {
             }
         }
     }
+    &__mobile {
+        display: none;
+    }
 }
 .carousel {
     display: flex;
@@ -412,7 +415,10 @@ body {
                 background-color: transparent;
                 border: none;
                 color: #fff;
-                font-size: 14px;
+                option {
+                    background-color: white;
+                    color: #6e8492;
+                }
             }
         }
     }
@@ -524,6 +530,695 @@ body {
             border-radius: 10px;
             font-weight: 700;
             cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        position: fixed;
+        z-index: 30;
+        &__top,
+        &__middle,
+        &__bottom {
+            display: none;
+        }
+        &__mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            height: auto;
+            width: auto;
+            z-index: 30;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/mochaGrunge.png");
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            width: 100vw;
+            img {
+                height: 60px;
+                width: 60px;
+                color: white;
+                padding: 30px;
+            }
+            .open {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 20;
+                height: 100vh;
+                width: 100vw;
+                background: #fff;
+                .nav {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
+                    gap: 30px;
+                    padding-top: 50px;
+
+                    .link {
+                        font-weight: 600;
+                        color: #6e8492;
+                        text-decoration: none;
+                    }
+                }
+                .close {
+                    display: flex;
+                    justify-content: end;
+                    img {
+                        padding: 10px;
+                    }
+                }
+            }
+            .hide {
+                display: none;
+            }
+        }
+    }
+    .carousel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 10px;
+        background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/cheap_diagonal_fabric.png");
+        &__slider {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        &__slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 0;
+
+            &--active {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        &__button {
+            position: absolute;
+            top: 60%;
+            transform: translateY(-50%);
+            background-color: #6e8492;
+            color: white;
+            border: dashed 2px white;
+            outline: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2;
+
+            &--left {
+                left: 68px;
+                padding: 15px 45px;
+            }
+
+            &--right {
+                right: 68px;
+                padding: 15px 40px;
+            }
+        }
+    }
+    .welcome-block {
+        padding: 40px 10px;
+        text-align: left;
+        color: #6e8492;
+
+        &__title {
+            font-size: 2rem;
+            font-weight: bolder;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+    }
+    .slider {
+        position: relative;
+        margin: 0;
+        padding: 50px 10px;
+        height: auto;
+
+        &__photos {
+            display: grid;
+            grid-template-columns: none;
+            grid-template-rows: max-content;
+            gap: 30px;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-content: center;
+
+            img {
+                border: #cbcbcb 2px solid;
+                width: 100%;
+                height: 196px;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+        &__button {
+            position: absolute;
+            top: 100%;
+            transform: translateY(-50%);
+            background-color: #6e8492;
+            height: 55px;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 80px;
+            cursor: pointer;
+
+            &:hover {
+                color: #000;
+            }
+
+            &--prev {
+                left: 100px;
+            }
+
+            &--next {
+                right: 100px;
+            }
+        }
+    }
+    .discount-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: center;
+        margin: 50px 0;
+        color: #6e8492;
+        padding: 10px;
+
+        &__column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        &__item {
+            display: flex;
+            flex: auto;
+            align-items: center;
+            border: #cbcbcb 2px solid;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        &__image {
+            width: 150px;
+            height: 150px;
+            margin-right: 10px;
+        }
+
+        &__text {
+            font-size: 32px;
+        }
+    }
+    .footer {
+        background-color: #333;
+        color: #6e8492;
+
+        &__row1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 50px 10px;
+            gap: 40px;
+            &__column {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                width: 350px;
+                &__icon {
+                    margin-right: 10px;
+                }
+
+                img {
+                    width: 40px;
+                    padding-right: 10px;
+                }
+                span {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                &__text {
+                    font-size: 18px;
+
+                    img {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+
+        &__row2 {
+            display: flex;
+            justify-content: start;
+            gap: 15px;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/noise_lines.png");
+            padding: 20px 10px;
+            overflow: scroll;
+
+            &__button {
+                text-decoration: none;
+                text-align: center;
+                padding-right: 20px;
+                border: none;
+                font-weight: bold;
+                font-size: 18px;
+                color: #6e8492;
+                border-right: #6e8492 3px solid;
+            }
+            &__button:last-child {
+                border-right: 0;
+            }
+        }
+
+        &__row3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 10px;
+            background: #6e8492;
+            color: white;
+
+            &__text {
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+            &__column {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                span {
+                    font-size: 18px;
+                    margin-right: 10px;
+                }
+
+                select {
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    font-size: 18px;
+                    option {
+                        background-color: white;
+                        color: #6e8492;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        position: fixed;
+        z-index: 30;
+        &__top,
+        &__middle,
+        &__bottom {
+            display: none;
+        }
+        &__mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            height: auto;
+            width: auto;
+            z-index: 30;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/mochaGrunge.png");
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            width: 100vw;
+            img {
+                height: 60px;
+                width: 60px;
+                color: white;
+                padding: 30px;
+            }
+            .open {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 20;
+                height: 100vh;
+                width: 100vw;
+                background: #fff;
+                .nav {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
+                    gap: 30px;
+                    padding-top: 50px;
+
+                    .link {
+                        font-weight: 600;
+                        color: #6e8492;
+                        text-decoration: none;
+                    }
+                }
+                .close {
+                    display: flex;
+                    justify-content: end;
+                    img {
+                        padding: 10px;
+                    }
+                }
+            }
+            .hide {
+                display: none;
+            }
+        }
+    }
+    .carousel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 10px;
+        background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/cheap_diagonal_fabric.png");
+        &__slider {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        &__slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 0;
+
+            &--active {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        &__button {
+            position: absolute;
+            top: 60%;
+            transform: translateY(-50%);
+            background-color: #6e8492;
+            color: white;
+            border: dashed 2px white;
+            outline: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2;
+
+            &--left {
+                left: 68px;
+                padding: 15px 45px;
+            }
+
+            &--right {
+                right: 68px;
+                padding: 15px 40px;
+            }
+        }
+    }
+    .welcome-block {
+        padding: 40px 10px;
+        text-align: left;
+        color: #6e8492;
+
+        &__title {
+            font-size: 2rem;
+            font-weight: bolder;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+    }
+    .slider {
+        position: relative;
+        margin: 0;
+        padding: 50px 10px;
+        height: auto;
+
+        &__photos {
+            display: grid;
+            grid-template-columns: none;
+            grid-template-rows: max-content;
+            gap: 30px;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-content: center;
+
+            img {
+                border: #cbcbcb 2px solid;
+                width: 100%;
+                height: 196px;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+        &__button {
+            position: absolute;
+            top: 100%;
+            transform: translateY(-50%);
+            background-color: #6e8492;
+            height: 55px;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 80px;
+            cursor: pointer;
+
+            &:hover {
+                color: #000;
+            }
+
+            &--prev {
+                left: 100px;
+            }
+
+            &--next {
+                right: 100px;
+            }
+        }
+    }
+    .discount-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: center;
+        margin: 50px 0;
+        color: #6e8492;
+        padding: 10px;
+
+        &__column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        &__item {
+            display: flex;
+            flex: auto;
+            align-items: center;
+            border: #cbcbcb 2px solid;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        &__image {
+            width: 150px;
+            height: 150px;
+            margin-right: 10px;
+        }
+
+        &__text {
+            font-size: 32px;
+        }
+    }
+    .footer {
+        background-color: #333;
+        color: #6e8492;
+
+        &__row1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 50px 10px;
+            gap: 40px;
+            &__column {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                width: 350px;
+                &__icon {
+                    margin-right: 10px;
+                }
+
+                img {
+                    width: 40px;
+                    padding-right: 10px;
+                }
+                span {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                &__text {
+                    font-size: 18px;
+
+                    img {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+
+        &__row2 {
+            display: flex;
+            justify-content: start;
+            gap: 15px;
+            background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/noise_lines.png");
+            padding: 20px 10px;
+            overflow: scroll;
+
+            &__button {
+                text-decoration: none;
+                text-align: center;
+                padding-right: 20px;
+                border: none;
+                font-weight: bold;
+                font-size: 18px;
+                color: #6e8492;
+                border-right: #6e8492 3px solid;
+            }
+            &__button:last-child {
+                border-right: 0;
+            }
+        }
+
+        &__row3 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 10px;
+            background: #6e8492;
+            color: white;
+
+            &__text {
+                font-size: 18px;
+                margin-right: 20px;
+            }
+
+            &__column {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                span {
+                    font-size: 18px;
+                    margin-right: 10px;
+                }
+
+                select {
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    font-size: 18px;
+                    option {
+                        background-color: white;
+                        color: #6e8492;
+                    }
+                }
+            }
         }
     }
 }
