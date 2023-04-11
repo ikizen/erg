@@ -23,6 +23,7 @@ body {
         .button {
             margin-left: 1rem;
             cursor: pointer;
+            text-decoration: none;
             img {
                 height: 15px;
                 width: 15px;
@@ -487,6 +488,41 @@ body {
         &__wishlist:hover,
         &__compare:hover {
             text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+.login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__form {
+        background-color: #4d6778;
+        padding-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 60px;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+
+        &__label {
+            &__input {
+                padding: 15px;
+                border-radius: 10px;
+                border: dashed 2px #4d6778;
+            }
+        }
+        &__button {
+            background: #f3f3f3;
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
             cursor: pointer;
         }
     }

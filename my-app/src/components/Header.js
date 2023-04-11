@@ -19,9 +19,11 @@ function Header() {
                     <img src="/checkout.svg" alt="" />
                     Checkout
                 </div>
-                <div className="button button--log-in">
-                    <img src="/log-in.svg" alt="" />
-                    Log in
+                <div>
+                    <Link className="button button--log-in" to="/login">
+                        <img src="/log-in.svg" alt="" />
+                        Log in
+                    </Link>
                 </div>
             </div>
             <div className="header__middle">
