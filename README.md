@@ -15,7 +15,7 @@ This project done by guide of https://github.com/Grassus/front_shop_task, pixel 
 Project is created with:
 
 -   react: 17.0.2
--   react-router-dom": 6.10
+-   react-router-dom: 6.10
 -   sass: 1.60
 -   axios: 1.3.5
 -   express: 4.18.2
